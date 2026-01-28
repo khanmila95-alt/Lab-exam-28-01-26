@@ -1,0 +1,45 @@
+class Book {
+    int bookId;
+    String title;
+    double price;
+
+   
+    Book(int bookId, String title, double price) {
+        this.bookId = bookId;
+        this.title = title;
+        this.price = price;
+    }
+
+    // Method to display book details
+    void display() {
+        System.out.println("Book ID: " + bookId + ", Title: " + title + ", Price: " + price);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Book[] books = new Book[5];
+        books[0] = new Book(101, "Java Basics", 450);
+        books[1] = new Book(102, "Advanced Java", 600);
+        books[2] = new Book(103, "Data Structures", 700);
+        books[3] = new Book(104, "Algorithms", 550);
+        books[4] = new Book(105, "Database Systems", 400);
+
+        
+        System.out.println("Books with price greater than 500:");
+        for (Book b : books) {
+            if (b.price > 500) {
+                b.display();
+            }
+        }
+
+        
+        double sum = 0;
+        for (Book b : books) {
+            sum += b.price;
+        }
+        double avg = sum / books.length;
+        System.out.println("Average price of all books: " + avg);
+    }
+}
